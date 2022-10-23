@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers as Controllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* На данный роут отправляем запрос */
+Route::post('/payment', [Controllers\PaymentPageController::class, 'update'])->name('payment.update');
+
+Route::get('/payment', [Controllers\PaymentPageController::class, 'update'])->name('payment.update');
