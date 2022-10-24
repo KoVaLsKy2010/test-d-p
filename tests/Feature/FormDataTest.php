@@ -148,9 +148,12 @@ class FormDataTest extends TestCase
      * Проверка на выполнение условия проверки лимита на день
      * @return void
      */
-    public function test_json_more_than_limit_data_status_fail(): void
+    public function test_form_more_than_limit_data_status_fail(): void
     {
-        $randomPayment = Payment::where('merchant_id', $this->correctMerchantId)->first();
+        $randomPayment = Payment::where([
+            'merchant_id' => $this->correctMerchantId,
+            'payment_id' => $this->correctPaymentId
+        ])->first();
         $oldAmount = $randomPayment->amount;
 
         $randomPayment->amount = FormDataClass::SUM_LIMIT + 1;
