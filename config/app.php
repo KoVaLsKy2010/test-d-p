@@ -143,6 +143,21 @@ return [
         // 'store'  => 'redis',
     ],
 
+    'paymentStatuses' =>
+    [
+        'new',
+        'pending',
+        'completed',
+        'expired',
+        'rejected'
+    ],
+
+    'merchantSecrets' =>
+    [
+        'json' => ['id' => env('JSON_MERCHANT_ID'), 'key' => env('JSON_MERCHANT_KEY')],
+        'form' => ['id' => env('FORM_MERCHANT_ID'), 'key' => env('FORM_MERCHANT_KEY')]
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
